@@ -38,6 +38,7 @@ export const TaskItem = memo(({
   const [editText, setEditText] = useState(task.todo);
   const [editCategoryId, setEditCategoryId] = useState(task.categoryId || 'none');
   const [editDueDate, setEditDueDate] = useState(task.dueDate || '');
+  const [isDragMode, setIsDragMode] = useState(false);
 
   const {
     attributes,
@@ -48,6 +49,7 @@ export const TaskItem = memo(({
     isDragging,
   } = useSortable({ 
     id: task.id,
+    disabled: !isDragMode,
     transition: {
       duration: 200,
       easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
@@ -173,21 +175,28 @@ export const TaskItem = memo(({
       ref={setNodeRef}
       style={style}
       className={cn(
-        'bg-card border border-border rounded-lg p-2 sm:p-3 md:p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.01]',
+        'bg-card border rounded-lg p-2 sm:p-3 md:p-4 shadow-sm transition-all duration-200',
+        isDragMode ? 'border-primary ring-2 ring-primary/50' : 'border-border hover:shadow-md hover:scale-[1.01]',
         task.completed && 'opacity-60'
       )}
     >
       <div className="flex items-center gap-2 sm:gap-3">
         <Button
-          {...attributes}
-          {...listeners}
+          {...(isDragMode ? { ...attributes, ...listeners } : {})}
+          onClick={() => setIsDragMode(!isDragMode)}
           disabled={disabled}
-          variant="ghost"
+          variant={isDragMode ? 'default' : 'ghost'}
           size="icon"
-          className="cursor-grab active:cursor-grabbing h-6 w-6 sm:h-8 sm:w-8"
-          aria-label="Drag to reorder task"
+          className={cn(
+            'h-6 w-6 sm:h-8 sm:w-8 transition-all duration-200',
+            isDragMode ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'
+          )}
+          aria-label={isDragMode ? 'Drag to reorder task' : 'Enable drag mode'}
         >
-          <GripVertical className="h-3 w-3 sm:h-4 sm:w-4 text-foreground" />
+          <GripVertical className={cn(
+            'h-3 w-3 sm:h-4 sm:w-4',
+            isDragMode ? 'text-primary-foreground' : 'text-foreground'
+          )} />
         </Button>
 
         <Button
