@@ -13,7 +13,6 @@ import { TaskStatsCard } from './components/TaskStatsCard';
 import { KeyboardShortcutsHelp } from './components/KeyboardShortcutsHelp';
 import { TaskListSkeleton } from './components/TaskSkeleton';
 import { ErrorMessage } from './components/ErrorMessage';
-import { ScrollIndicator } from './components/ScrollIndicator';
 import { Toaster } from './components/ui/sonner';
 import { Button } from './components/ui/button';
 import {
@@ -192,8 +191,6 @@ function App() {
             {showShortcuts && <KeyboardShortcutsHelp />}
           </div>
         </main>
-
-        <ScrollIndicator />
       </div>
     </div>
   );

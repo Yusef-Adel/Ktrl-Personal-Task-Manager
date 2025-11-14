@@ -30,7 +30,7 @@ export const ScrollIndicator = () => {
   if (!showIndicator) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 z-50 pointer-events-none animate-in fade-in slide-in-from-bottom-2 duration-300">
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 sm:top-auto sm:bottom-4 sm:left-4 sm:translate-x-0 z-50 pointer-events-none animate-in fade-in slide-in-from-top-2 sm:slide-in-from-bottom-2 duration-300">
       <div className="flex flex-col items-center gap-1">
         <p className="text-xs text-muted-foreground font-medium mb-2">More tasks below</p>
         <div className="bg-primary/90 backdrop-blur-sm text-primary-foreground rounded-full p-2 shadow-lg animate-bounce">

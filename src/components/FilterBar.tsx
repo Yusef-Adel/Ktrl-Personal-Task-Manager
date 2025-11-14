@@ -9,6 +9,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from './ui/select';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from './ui/dropdown-menu';
 
 interface FilterBarProps {
   filter: FilterType;
@@ -58,18 +66,70 @@ export const FilterBar = ({
           />
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-2">
-              <Filter className="h-4 w-4 text-muted-foreground" />
-              <div className="flex gap-1 flex-wrap">
+        <div className="flex flex-col sm:flex-row text-foreground gap-3 items-start sm:items-center justify-between">
+          <div className="flex items-center gap-2 sm:hidden w-full">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="flex-1">
+                  <Filter className="h-4 w-4 mr-2" />
+                  {filters.find(f => f.value === filter)?.label}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuLabel>Filter Tasks</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {filters.map(({ value, label }) => (
+                  <DropdownMenuItem
+                    key={value}
+                    onClick={() => onFilterChange(value)}
+                    className={filter === value ? 'bg-accent' : ''}
+                  >
+                    {label}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="flex-1">
+                  <ArrowUpDown className="h-4 w-4 mr-2" />
+                  {sortType === 'default' ? 'Default' : 
+                   sortType === 'alphabetical' ? 'A-Z' :
+                   sortType === 'dueDate' ? 'Due Date' : 'Category'}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>Sort By</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => onSortChange('default')} className={sortType === 'default' ? 'bg-accent' : ''}>
+                  Default
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => onSortChange('alphabetical')} className={sortType === 'alphabetical' ? 'bg-accent' : ''}>
+                  A-Z
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => onSortChange('dueDate')} className={sortType === 'dueDate' ? 'bg-accent' : ''}>
+                  Due Date
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => onSortChange('category')} className={sortType === 'category' ? 'bg-accent' : ''}>
+                  Category
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+
+          {/* Desktop: Original layout */}
+          <div className="hidden sm:flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <div className="flex items-center gap-2 flex-1 min-w-0">
+              <Filter className="h-4 w-4 text-muted-foreground shrink-0" />
+              <div className="flex gap-1 flex-1 min-w-0">
                 {filters.map(({ value, label }) => (
                   <Button
                     key={value}
                     onClick={() => onFilterChange(value)}
                     variant={filter === value ? 'default' : 'secondary'}
                     size="sm"
-                    className="transition-all duration-200 hover:scale-105 active:scale-95"
+                    className="transition-all duration-200 hover:scale-105 active:scale-95 flex-1 text-xs sm:text-sm"
                   >
                     {label}
                   </Button>
@@ -77,10 +137,10 @@ export const FilterBar = ({
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <ArrowUpDown className="h-4 w-4 text-muted-foreground" />
+            <div className="flex items-center gap-2 flex-1 min-w-0 sm:flex-initial">
+              <ArrowUpDown className="h-4 w-4 text-muted-foreground shrink-0" />
             <Select value={sortType} onValueChange={(value) => onSortChange(value as SortType)}>
-              <SelectTrigger className="w-[140px] text-foreground" aria-label="Sort tasks by">
+              <SelectTrigger className="flex-1 sm:w-[140px] text-foreground text-xs sm:text-sm" aria-label="Sort tasks by">
                   <SelectValue className="text-foreground" />
                 </SelectTrigger>
                 <SelectContent>
