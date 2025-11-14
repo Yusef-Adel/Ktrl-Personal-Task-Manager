@@ -183,14 +183,12 @@ function App() {
 
           <div className="space-y-4 sm:space-y-5 md:space-y-6">
             <TaskStatsCard stats={stats} />
-            
             <CategoryManager
               categories={categories}
               onAdd={addCategory}
               onUpdate={updateCategory}
               onDelete={deleteCategory}
             />
-
             {showShortcuts && <KeyboardShortcutsHelp />}
           </div>
         </main>

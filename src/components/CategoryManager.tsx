@@ -74,7 +74,7 @@ export const CategoryManager = ({
   };
 
   return (
-    <Card className="p-3 sm:p-4 animate-in fade-in-50 duration-300">
+    <Card className="p-6 sm:p-6 animate-in fade-in-50 duration-300">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-semibold text-foreground">Categories</h3>
         <Button
