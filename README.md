@@ -13,33 +13,37 @@
 
 </div>
 
----
-
 ## 📸 Screenshots
 
 ### 🌙 Dark Mode
+
 ![Dark Mode](https://github.com/user-attachments/assets/e058532d-3d26-46c0-9ea3-10a9c15d8223)
-*Clean, modern dark interface with smooth animations and intuitive controls*
+_Clean, modern dark interface with smooth animations and intuitive controls_
 
 ### ☀️ Light Mode
-![Light Mode Interface](https://ibb.co/bR1TSKnr)
-*Bright, minimalist light theme with excellent readability*
+
+![Light Mode Interface](<(https://github.com/user-attachments/assets/9609efb7-ccd2-4266-95e7-700d54c817a4)>)
+_Bright, minimalist light theme with excellent readability_
 
 ### ⌨️ Keyboard Shortcuts
+
 ![Keyboard Shortcuts](https://ibb.co/tPFj6zBC)
-*Power user features with comprehensive keyboard navigation*
+_Power user features with comprehensive keyboard navigation_
 
 ### ⌨️ Category Submission
-![Category Submission](https://ibb.co/LztF6ZrB)
-*Power user features with comprehensive keyboard navigation*
+
+![Category Submission](https://github.com/user-attachments/assets/73da0172-0464-4ea1-8aa9-25785dc50c63)
+_Power user features with comprehensive keyboard navigation_
 
 ### ⌨️ Category Edit
-![Category Edit](https://ibb.co/CK85kDd1)
-*Power user features with comprehensive keyboard navigation*
+
+![Category Edit](https://github.com/user-attachments/assets/322da38b-519f-4c81-9ff0-95f70eaf1963)
+_Power user features with comprehensive keyboard navigation_
 
 ### ⌨️ Task Edit
-![Task Edit](https://ibb.co/gFcgX9nY)
-*Power user features with comprehensive keyboard navigation*
+
+![Task Edit](https://github.com/user-attachments/assets/145a8991-562d-4975-8c39-d65915bffb5b)
+_Power user features with comprehensive keyboard navigation_
 
 ---
 
@@ -54,12 +58,14 @@ Whether you're managing daily tasks, planning projects, or organizing your life,
 ## ✨ Key Features
 
 ### 🎨 **Beautiful UI/UX**
+
 - **Dual Theme Support**: Seamless dark/light mode with animated transitions
 - **Modern Design**: Built with shadcn/ui components and Geist font family
 - **Smooth Animations**: Micro-interactions and transitions for enhanced user experience
 - **Fully Responsive**: Works perfectly on mobile (320px+), tablet (768px+), and desktop (1024px+)
 
 ### 📋 **Task Management**
+
 - **Quick Task Creation**: Add tasks with Enter key or click
 - **Drag & Drop Reordering**: Intuitive task organization with smooth visual feedback
 - **Task Editing**: Update task details, categories, and due dates inline
@@ -69,23 +75,28 @@ Whether you're managing daily tasks, planning projects, or organizing your life,
 - **Multiple Sort Options**: Sort by default, alphabetical, due date, or category
 
 ### 🏷️ **Categories**
+
 - **Custom Categories**: Create unlimited color-coded categories
 - **8 Preset Colors**: Choose from beautiful, accessible color palette
 - **Category Assignment**: Assign categories during task creation or editing
 - **Visual Tags**: Color-coded badges for easy task identification
 
 ### 📅 **Due Dates**
+
 - **Visual Date Picker**: Full calendar with month/year navigation
 - **Smart Highlighting**: Color-coded dates (red for overdue, gray for upcoming)
 - **Date Formatting**: Clean, readable date display (e.g., "Nov 14, 2024")
 
 ### 📊 **Statistics Dashboard**
+
 - **Real-time Stats**: Total, Active, Completed tasks, and Completion Rate
 - **Visual Cards**: Beautiful stat cards with icons and hover effects
 - **Progress Tracking**: Monitor your productivity at a glance
 
 ### ⌨️ **Keyboard Shortcuts**
+
 Power user features for lightning-fast task management:
+
 - `Ctrl/Cmd + K` - Focus search
 - `Ctrl/Cmd + N` - New task
 - `Ctrl/Cmd + D` - Toggle theme
@@ -93,11 +104,13 @@ Power user features for lightning-fast task management:
 - `Ctrl/Cmd + 1/2/3` - Filter All/Active/Completed
 
 ### 💾 **Data Export**
+
 - **JSON Export**: Export all task data in JSON format
 - **CSV Export**: Export to CSV for spreadsheet applications
 - **Preserve Metadata**: Categories, due dates, and completion status included
 
 ### 🎭 **Additional Features**
+
 - **Loading States**: Skeleton screens during data fetching
 - **Error Handling**: Graceful error messages with retry options
 - **Toast Notifications**: Real-time feedback for all actions
@@ -109,12 +122,14 @@ Power user features for lightning-fast task management:
 ## 🚀 Technology Stack
 
 ### **Core Technologies**
+
 - **React 19** - Modern UI framework with functional components and hooks
 - **TypeScript 5.9** - Type-safe development with full IDE support
 - **Vite 7** - Lightning-fast build tool and dev server
 - **Bun** - Ultra-fast JavaScript runtime and package manager
 
 ### **UI/UX**
+
 - **shadcn/ui** - Professional, accessible component library
 - **Tailwind CSS v4** - Utility-first CSS framework with CSS variables
 - **Geist Font** - Modern, minimalist typography by Vercel
@@ -122,11 +137,13 @@ Power user features for lightning-fast task management:
 - **Framer Motion** - Smooth animations and transitions
 
 ### **State Management & Data**
+
 - **React Hooks** - useState, useEffect, useCallback for state management
 - **DummyJSON API** - Mock REST API for task operations
 - **LocalStorage** - Client-side persistence for metadata
 
 ### **Utilities**
+
 - **@dnd-kit** - Modern drag-and-drop with accessibility
 - **date-fns** - Modern date utility library
 - **react-day-picker** - Accessible date picker component
@@ -135,6 +152,7 @@ Power user features for lightning-fast task management:
 - **clsx & tailwind-merge** - Efficient className management
 
 ### **Development Tools**
+
 - **ESLint** - Code quality and consistency
 - **TypeScript ESLint** - TypeScript-specific linting
 - **PostCSS** - CSS processing and optimization
@@ -177,21 +195,25 @@ cd Ktrl-Personal-Task-Manager
 Choose one of the following package managers:
 
 **Option A: Using Bun (Recommended - Fastest)**
+
 ```bash
 bun install
 ```
 
 **Option B: Using npm (Most Common)**
+
 ```bash
 npm install
 ```
 
 **Option C: Using yarn**
+
 ```bash
 yarn install
 ```
 
 **Option D: Using pnpm**
+
 ```bash
 pnpm install
 ```
@@ -203,21 +225,25 @@ pnpm install
 After installation is complete, start the local development server:
 
 **Using Bun:**
+
 ```bash
 bun run dev
 ```
 
 **Using npm:**
+
 ```bash
 npm run dev
 ```
 
 **Using yarn:**
+
 ```bash
 yarn dev
 ```
 
 **Using pnpm:**
+
 ```bash
 pnpm dev
 ```
@@ -269,27 +295,28 @@ Ktrl is built with modern web standards and tested across all major browsers:
 
 #### **✅ Fully Supported Browsers**
 
-| Browser | Minimum Version | Status | Notes |
-|---------|----------------|--------|-------|
-| **Chrome** | 90+ | ✅ Excellent | Recommended - Best performance |
-| **Firefox** | 88+ | ✅ Excellent | Full feature support |
-| **Safari** | 14+ | ✅ Excellent | macOS & iOS fully supported |
-| **Edge** | 90+ | ✅ Excellent | Chromium-based, same as Chrome |
-| **Opera** | 76+ | ✅ Excellent | Chromium-based |
-| **Brave** | 1.25+ | ✅ Excellent | Privacy-focused, works great |
+| Browser     | Minimum Version | Status       | Notes                          |
+| ----------- | --------------- | ------------ | ------------------------------ |
+| **Chrome**  | 90+             | ✅ Excellent | Recommended - Best performance |
+| **Firefox** | 88+             | ✅ Excellent | Full feature support           |
+| **Safari**  | 14+             | ✅ Excellent | macOS & iOS fully supported    |
+| **Edge**    | 90+             | ✅ Excellent | Chromium-based, same as Chrome |
+| **Opera**   | 76+             | ✅ Excellent | Chromium-based                 |
+| **Brave**   | 1.25+           | ✅ Excellent | Privacy-focused, works great   |
 
 #### **📱 Mobile Browser Support**
 
-| Mobile Browser | Status | Notes |
-|---------------|--------|-------|
-| Safari iOS 14+ | ✅ Excellent | Optimized for iPhone/iPad |
-| Chrome Android | ✅ Excellent | Touch gestures work perfectly |
-| Firefox Android | ✅ Excellent | Full feature parity |
-| Samsung Internet | ✅ Good | Chromium-based |
+| Mobile Browser   | Status       | Notes                         |
+| ---------------- | ------------ | ----------------------------- |
+| Safari iOS 14+   | ✅ Excellent | Optimized for iPhone/iPad     |
+| Chrome Android   | ✅ Excellent | Touch gestures work perfectly |
+| Firefox Android  | ✅ Excellent | Full feature parity           |
+| Samsung Internet | ✅ Good      | Chromium-based                |
 
 #### **🛠️ Browser Features Used**
 
 The application uses these modern web features:
+
 - ✅ **CSS Variables (Custom Properties)** - Supported in all modern browsers
 - ✅ **CSS Grid & Flexbox** - Full support across browsers
 - ✅ **LocalStorage API** - Universal support
@@ -312,6 +339,7 @@ The application uses these modern web features:
 **If you experience issues:**
 
 1. **Clear your browser cache**:
+
    - Chrome: `Ctrl/Cmd + Shift + Delete`
    - Firefox: `Ctrl/Cmd + Shift + Delete`
    - Safari: `Cmd + Option + E`
@@ -322,7 +350,7 @@ The application uses these modern web features:
 
 4. **Try incognito/private mode**: Rules out extension conflicts
 
-5. **Check console for errors**: 
+5. **Check console for errors**:
    - Open DevTools: `F12` or `Ctrl/Cmd + Shift + I`
    - Look for errors in the Console tab
 
@@ -333,6 +361,7 @@ The application uses these modern web features:
 Deploy your Ktrl instance to any static hosting provider:
 
 #### **Vercel (Recommended)**
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -342,6 +371,7 @@ vercel
 ```
 
 #### **Netlify**
+
 ```bash
 # Install Netlify CLI
 npm i -g netlify-cli
@@ -351,11 +381,13 @@ netlify deploy --prod
 ```
 
 #### **GitHub Pages**
+
 1. Build the project: `npm run build`
 2. Push the `dist` folder to your `gh-pages` branch
 3. Enable GitHub Pages in repository settings
 
 #### **Other Options**
+
 - **Cloudflare Pages**
 - **Firebase Hosting**
 - **AWS S3 + CloudFront**
@@ -367,6 +399,7 @@ All these platforms support static React applications out of the box.
 ---
 
 ### **🔍 Project Structure**
+
 ```
 Ktrl/
 ├── public/                 # Static assets (favicon, images)
@@ -408,25 +441,29 @@ Ktrl/
 
 ### **⚙️ Available Scripts**
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server at `http://localhost:5173` |
-| `npm run build` | Build optimized production bundle to `dist/` |
-| `npm run preview` | Preview production build locally |
-| `npm run lint` | Run ESLint to check code quality |
+| Command           | Description                                         |
+| ----------------- | --------------------------------------------------- |
+| `npm run dev`     | Start development server at `http://localhost:5173` |
+| `npm run build`   | Build optimized production bundle to `dist/`        |
+| `npm run preview` | Preview production build locally                    |
+| `npm run lint`    | Run ESLint to check code quality                    |
 
 ---
 
 ### **🐛 Common Setup Issues**
 
 #### **Issue: "command not found: npm" or "command not found: node"**
+
 **Solution**: Node.js is not installed or not in your PATH. Download and install from [nodejs.org](https://nodejs.org/)
 
 #### **Issue: Port 5173 is already in use**
+
 **Solution**: Either close the application using that port, or Vite will automatically try the next available port (5174, 5175, etc.)
 
 #### **Issue: EACCES permission errors (Linux/Mac)**
+
 **Solution**: Don't use `sudo` with npm. Fix npm permissions:
+
 ```bash
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
@@ -434,7 +471,9 @@ export PATH=~/.npm-global/bin:$PATH
 ```
 
 #### **Issue: Installation fails with network errors**
-**Solution**: 
+
+**Solution**:
+
 ```bash
 # Clear npm cache
 npm cache clean --force
@@ -444,7 +483,9 @@ npm install
 ```
 
 #### **Issue: Build fails with TypeScript errors**
+
 **Solution**: Ensure TypeScript is installed correctly:
+
 ```bash
 npm install -D typescript
 npm run build
@@ -457,22 +498,26 @@ npm run build
 Once the application is running:
 
 1. **Create Your First Task**
+
    - Type in the "Add a new task..." input field
    - Press `Enter` or click "Add Task"
 
 2. **Add a Category**
+
    - Scroll down to the "Categories" card
    - Click the `+` button
    - Enter a name and choose a color
    - Click "Add Category"
 
 3. **Organize Your Tasks**
+
    - Drag tasks by the grip handle to reorder
    - Click the checkbox to mark as complete
    - Click the pencil icon to edit
    - Click the trash icon to delete
 
 4. **Try Keyboard Shortcuts**
+
    - Press `Ctrl/Cmd + K` to focus search
    - Press `Ctrl/Cmd + N` to add new task
    - Press `Ctrl/Cmd + D` to toggle theme
@@ -487,6 +532,7 @@ Once the application is running:
 ### **📊 System Requirements**
 
 **Minimum:**
+
 - **CPU**: Any modern processor (2010+)
 - **RAM**: 2 GB
 - **Storage**: 100 MB free space
@@ -494,6 +540,7 @@ Once the application is running:
 - **Screen**: 320px width minimum (mobile support)
 
 **Recommended:**
+
 - **CPU**: Dual-core processor or better
 - **RAM**: 4 GB or more
 - **Internet**: Broadband connection
@@ -504,15 +551,19 @@ Once the application is running:
 ## 🎨 Design Philosophy
 
 ### **Minimalist & Modern**
+
 Ktrl embraces a clean, minimalist design inspired by modern productivity tools. Every element serves a purpose, and the interface gets out of your way to let you focus on what matters.
 
 ### **Responsive by Design**
+
 Built with a mobile-first approach, Ktrl adapts seamlessly to any screen size:
+
 - **Mobile (320px+)**: Optimized touch targets, stacked layouts
 - **Tablet (768px+)**: Expanded features, side-by-side layouts
 - **Desktop (1024px+)**: Full feature set, multi-column layouts
 
 ### **Accessibility First**
+
 - Full keyboard navigation support
 - ARIA labels on all interactive elements
 - High contrast ratios for readability
@@ -523,27 +574,32 @@ Built with a mobile-first approach, Ktrl adapts seamlessly to any screen size:
 ## 💡 Usage Guide
 
 ### **Creating Your First Task**
+
 1. Type your task in the input field
 2. (Optional) Select a category from the dropdown
 3. (Optional) Pick a due date from the calendar
 4. Press Enter or click "Add Task"
 
 ### **Managing Tasks**
+
 - **Complete**: Click the checkbox
 - **Edit**: Click the pencil icon
 - **Delete**: Click the trash icon
 - **Reorder**: Drag the grip handle
 
 ### **Using Categories**
+
 1. Click the `+` button in the Categories section
 2. Enter a category name
 3. Choose a color from the palette
 4. Click "Add Category"
 
 ### **Keyboard Navigation**
+
 Press the shortcuts mentioned in the Keyboard Shortcuts section for quick actions.
 
 ### **Exporting Data**
+
 1. Click the settings gear icon (top right)
 2. Select "Export as JSON" or "Export as CSV"
 3. Your file will download automatically
@@ -553,12 +609,15 @@ Press the shortcuts mentioned in the Keyboard Shortcuts section for quick action
 ## 🔒 Data & Privacy
 
 ### **Local-First**
+
 All your data is stored locally in your browser:
+
 - Tasks are fetched from DummyJSON API (mock data)
 - Categories, metadata, and preferences are stored in localStorage
 - No data is sent to external servers
 
 ### **No Account Required**
+
 Start using Ktrl immediately - no sign-up, no email, no tracking.
 
 ---
@@ -577,6 +636,7 @@ Start using Ktrl immediately - no sign-up, no email, no tracking.
 ## 🚀 Future Enhancements
 
 ### **Planned Features**
+
 - [ ] **Backend Integration**: Real database with persistent storage
 - [ ] **User Authentication**: Sign up, login, cloud sync
 - [ ] **Collaboration**: Share tasks, team workspaces
@@ -599,9 +659,10 @@ Start using Ktrl immediately - no sign-up, no email, no tracking.
 
 ### **Development Journey**
 
-Building Ktrl has been an incredibly rewarding experience. What started as a simple task manager evolved into a comprehensive productivity tool that I'm genuinely proud of. 
+Building Ktrl has been an incredibly rewarding experience. What started as a simple task manager evolved into a comprehensive productivity tool that I'm genuinely proud of.
 
 **What I Learned:**
+
 - Mastering modern React patterns (hooks, memo, context)
 - Building accessible, responsive UIs with Tailwind CSS
 - Implementing complex interactions (drag-and-drop, keyboard shortcuts)
@@ -612,7 +673,7 @@ Building Ktrl has been an incredibly rewarding experience. What started as a sim
 This project allowed me to express my creativity through thoughtful design decisions - from the color palette to the micro-interactions. Every animation, every transition, every hover effect was carefully crafted to create a delightful user experience.
 
 **The Fun Part:**
-Honestly, the most enjoyable aspect was adding those little touches that make the app feel alive - the smooth theme transitions, the satisfying checkbox animations, the subtle shadows that respond to user interaction. These details don't just look good; they make the app *feel* good to use.
+Honestly, the most enjoyable aspect was adding those little touches that make the app feel alive - the smooth theme transitions, the satisfying checkbox animations, the subtle shadows that respond to user interaction. These details don't just look good; they make the app _feel_ good to use.
 
 **Looking Back:**
 If I could do it again, I'd start with a proper backend from day one. But the constraints of using a mock API taught me valuable lessons about client-side state management and making the most of limited resources.
@@ -625,6 +686,7 @@ Ktrl is just the beginning. I'm excited to continue refining it, adding the plan
 ## 🤝 Contributing
 
 While this is a personal project, feedback and suggestions are always welcome! Feel free to:
+
 - Open an issue for bugs or feature requests
 - Star the repository if you find it useful
 - Share your thoughts on improvements
@@ -650,6 +712,7 @@ in the Software without restriction...
 ## 🙏 Acknowledgments
 
 Special thanks to:
+
 - **[shadcn](https://twitter.com/shadcn)** for the incredible shadcn/ui component library
 - **[Vercel](https://vercel.com)** for the beautiful Geist font family
 - **[Lucide](https://lucide.dev)** for the consistent, beautiful icons
@@ -674,4 +737,3 @@ Special thanks to:
 ⭐ Star this repo if you find it useful!
 
 </div>
-
