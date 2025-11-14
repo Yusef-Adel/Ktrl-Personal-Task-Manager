@@ -18,7 +18,7 @@
 ## 📸 Screenshots
 
 ### 🌙 Dark Mode
-![Dark Mode Interface](https://ibb.co/ymBFDQK6)
+![Dark Mode](https://github.com/user-attachments/assets/e058532d-3d26-46c0-9ea3-10a9c15d8223)
 *Clean, modern dark interface with smooth animations and intuitive controls*
 
 ### ☀️ Light Mode
