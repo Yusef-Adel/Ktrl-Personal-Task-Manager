@@ -55,7 +55,7 @@ Whether you're managing daily tasks, planning projects, or organizing your life,
 ### 🎨 **Beautiful UI/UX**
 
 - **Dual Theme Support**: Seamless dark/light mode with animated transitions
-- **Modern Design**: Built with shadcn/ui components and Geist font family
+- **Modern Design**: Built with shadcn/ui components
 - **Smooth Animations**: Micro-interactions and transitions for enhanced user experience
 - **Fully Responsive**: Works perfectly on mobile (320px+), tablet (768px+), and desktop (1024px+)
 
@@ -93,7 +93,6 @@ Whether you're managing daily tasks, planning projects, or organizing your life,
 Power user features for lightning-fast task management:
 
 - `Ctrl/Cmd + K` - Focus search
-- `Ctrl/Cmd + N` - New task
 - `Ctrl/Cmd + D` - Toggle theme
 - `Ctrl/Cmd + E` - Export tasks
 - `Ctrl/Cmd + 1/2/3` - Filter All/Active/Completed
@@ -129,7 +128,6 @@ Power user features for lightning-fast task management:
 - **Tailwind CSS v4** - Utility-first CSS framework with CSS variables
 - **Geist Font** - Modern, minimalist typography by Vercel
 - **Lucide React** - Beautiful, consistent icon library
-- **Framer Motion** - Smooth animations and transitions
 
 ### **State Management & Data**
 
@@ -161,7 +159,7 @@ Power user features for lightning-fast task management:
 
 Before you begin, ensure you have the following installed on your system:
 
-- **Node.js** (version 18.0 or higher) - [Download here](https://nodejs.org/)
+- **Node.js** (version 20.0 or higher) - [Download here](https://nodejs.org/)
   - To check your version: `node --version`
   - Alternatively, you can use **Bun** (version 1.0+) - [Download here](https://bun.sh/)
 - **Git** - [Download here](https://git-scm.com/)
