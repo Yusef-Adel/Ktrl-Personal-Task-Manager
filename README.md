@@ -18,32 +18,27 @@
 ### 🌙 Dark Mode
 
 ![Dark Mode](https://github.com/user-attachments/assets/e058532d-3d26-46c0-9ea3-10a9c15d8223)
-_Clean, modern dark interface with smooth animations and intuitive controls_
+
 
 ### ☀️ Light Mode
 
-![Light Mode Interface]((https://github.com/user-attachments/assets/9609efb7-ccd2-4266-95e7-700d54c817a4))
-_Bright, minimalist light theme with excellent readability_
+![Light Mode Interface](https://github.com/user-attachments/assets/f0d069c2-777d-4915-8213-100b5c43e34a)
 
 ### ⌨️ Keyboard Shortcuts
 
 ![Keyboard Shortcuts](https://github.com/user-attachments/assets/8d01969b-95f1-43ff-b487-5ddcc1ba322b)
-_Power user features with comprehensive keyboard navigation_
 
 ### ⌨️ Category Submission
 
 ![Category Submission](https://github.com/user-attachments/assets/73da0172-0464-4ea1-8aa9-25785dc50c63)
-_Power user features with comprehensive keyboard navigation_
 
 ### ⌨️ Category Edit
 
 ![Category Edit](https://github.com/user-attachments/assets/322da38b-519f-4c81-9ff0-95f70eaf1963)
-_Power user features with comprehensive keyboard navigation_
 
 ### ⌨️ Task Edit
 
 ![Task Edit](https://github.com/user-attachments/assets/145a8991-562d-4975-8c39-d65915bffb5b)
-_Power user features with comprehensive keyboard navigation_
 
 ---
 
