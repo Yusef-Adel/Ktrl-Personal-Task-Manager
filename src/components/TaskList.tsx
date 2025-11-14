@@ -58,7 +58,8 @@ export const TaskList = memo(({
   );
 
   const handleDragStart = (event: DragStartEvent) => {
-    setActiveId(event.active.id as number);
+    const activeTaskId = typeof event.active.id === 'string' ? Number(event.active.id) : event.active.id;
+    setActiveId(activeTaskId as number);
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -66,8 +67,10 @@ export const TaskList = memo(({
     setActiveId(null);
 
     if (over && active.id !== over.id) {
-      const oldIndex = tasks.findIndex((task) => task.id === active.id);
-      const newIndex = tasks.findIndex((task) => task.id === over.id);
+      const activeTaskId = typeof active.id === 'string' ? Number(active.id) : active.id;
+      const overTaskId = typeof over.id === 'string' ? Number(over.id) : over.id;
+      const oldIndex = tasks.findIndex((task) => task.id === activeTaskId);
+      const newIndex = tasks.findIndex((task) => task.id === overTaskId);
 
       const newTasks = [...tasks];
       const [movedTask] = newTasks.splice(oldIndex, 1);
@@ -103,13 +106,13 @@ export const TaskList = memo(({
       onDragCancel={handleDragCancel}
     >
       <SortableContext
-        items={tasks.map((task) => task.id)}
+        items={tasks.map((task) => String(task.id))}
         strategy={verticalListSortingStrategy}
       >
         <div className="space-y-2 sm:space-y-3">
           {tasks.map((task, index) => (
             <div
-              key={task.id}
+              key={String(task.id)}
               className="animate-in fade-in-50 slide-in-from-bottom-2"
               style={{ animationDelay: `${index * 30}ms`, animationFillMode: 'backwards' }}
             >
@@ -125,9 +128,9 @@ export const TaskList = memo(({
           ))}
         </div>
       </SortableContext>
-      <DragOverlay>
+      <DragOverlay dropAnimation={null}>
         {activeTask ? (
-          <div className="opacity-50">
+          <div className="bg-card border border-border rounded-lg p-2 sm:p-3 md:p-4 shadow-2xl opacity-80 rotate-3 scale-105">
             <TaskItem
               task={activeTask}
               categories={categories}

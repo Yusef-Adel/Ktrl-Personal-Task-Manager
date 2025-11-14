@@ -82,16 +82,21 @@ export const useTaskManager = () => {
   const addTask = async (todo: string, categoryId?: string, dueDate?: string) => {
     setError(null);
     try {
-      const newTask = await api.createTask({
+      // Generate a unique local ID based on timestamp and random number
+      const localId = Date.now() + Math.floor(Math.random() * 10000);
+      
+      // Create task with local ID (don't rely on API ID which is always the same)
+      const enrichedTask = { 
+        id: localId,
         todo,
         completed: false,
         userId: 1,
-      });
-
-      const enrichedTask = { ...newTask, categoryId, dueDate };
+        categoryId, 
+        dueDate 
+      };
       
       if (categoryId || dueDate) {
-        setTaskMeta(newTask.id, { categoryId, dueDate });
+        setTaskMeta(localId, { categoryId, dueDate });
       }
 
       // Add to localStorage
@@ -124,7 +129,7 @@ export const useTaskManager = () => {
         updatedTask = await api.updateTask(id, updates);
       } catch (apiError) {
         // If API fails (e.g., 404 for newly created tasks), just use the updates
-        console.warn('API update failed, updating locally only:', apiError);
+        // This is expected for tasks created in this session
         updatedTask = updates;
       }
 
@@ -168,8 +173,8 @@ export const useTaskManager = () => {
       try {
         await api.deleteTask(id);
       } catch (apiError) {
-        // If API fails, just delete locally
-        console.warn('API delete failed, deleting locally only:', apiError);
+        // If API fails (404 for newly created tasks), just delete locally
+        // This is expected for tasks created in this session
       }
       
       removeTaskMeta(id);

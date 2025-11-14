@@ -48,7 +48,7 @@ export const TaskItem = memo(({
     transition,
     isDragging,
   } = useSortable({ 
-    id: task.id,
+    id: String(task.id),
     transition: {
       duration: 200,
       easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
@@ -58,7 +58,7 @@ export const TaskItem = memo(({
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    opacity: isDragging ? 0.5 : 1,
+    opacity: isDragging ? 0.3 : 1,
   };
 
   const category = categories.find(c => c.id === task.categoryId);
@@ -174,9 +174,9 @@ export const TaskItem = memo(({
       ref={setNodeRef}
       style={style}
       className={cn(
-        'bg-card border border-border rounded-lg p-2 sm:p-3 md:p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.01]',
-        task.completed && 'opacity-60',
-        isDragging && 'opacity-50 shadow-lg scale-105'
+        'bg-card border border-border rounded-lg p-2 sm:p-3 md:p-4 shadow-sm transition-all duration-200 hover:shadow-md',
+        !isDragging && 'hover:scale-[1.005]',
+        task.completed && 'opacity-60'
       )}
     >
       <div className="flex items-center gap-2 sm:gap-3">
@@ -186,15 +186,16 @@ export const TaskItem = memo(({
           {...listeners}
           disabled={disabled}
           className={cn(
+            'flex items-center justify-center shrink-0',
+            'h-6 w-6 sm:h-7 sm:w-7',
+            'rounded hover:bg-accent/80 active:bg-accent transition-colors duration-150',
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary',
             'cursor-grab active:cursor-grabbing touch-none',
-            'flex items-center justify-center',
-            'h-8 w-8 sm:h-10 sm:w-10',
-            'rounded hover:bg-accent transition-colors duration-200',
-            'focus:outline-none focus:ring-2 focus:ring-primary'
+            disabled && 'opacity-50 cursor-not-allowed'
           )}
           aria-label="Drag to reorder task"
         >
-          <GripVertical className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground" />
+          <GripVertical className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground pointer-events-none" />
         </button>
 
         <Button

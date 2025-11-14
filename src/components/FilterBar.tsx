@@ -163,7 +163,7 @@ export const FilterBar = ({
                 className="transition-all duration-200 hover:scale-105 active:scale-95 w-full sm:w-auto justify-center"
               >
                 <FileJson className="h-4 w-4 mr-2" />
-                <span className="hidden sm:inline">Export as </span>JSON
+                <span className="hidden sm:inline">Export as</span>JSON
               </Button>
             )}
             {onExportCSV && (
