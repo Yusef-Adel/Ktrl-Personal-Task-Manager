@@ -76,9 +76,9 @@ export const TaskList = memo(({
 
   if (tasks.length === 0) {
     return (
-      <div className="text-center py-12">
-        <p className="text-muted-foreground text-lg">No tasks found</p>
-        <p className="text-muted-foreground text-sm mt-2">
+      <div className="text-center py-8 sm:py-12">
+        <p className="text-muted-foreground text-base sm:text-lg">No tasks found</p>
+        <p className="text-muted-foreground text-xs sm:text-sm mt-2">
           Add a task to get started!
         </p>
       </div>
@@ -99,7 +99,7 @@ export const TaskList = memo(({
         items={tasks.map((task) => task.id)}
         strategy={verticalListSortingStrategy}
       >
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3">
           {tasks.map((task, index) => (
             <div
               key={task.id}

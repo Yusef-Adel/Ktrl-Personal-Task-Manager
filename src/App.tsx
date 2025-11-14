@@ -100,12 +100,12 @@ function App() {
   return (
     <div className="min-h-screen bg-background">
       <Toaster richColors position="top-right" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <header className="mb-8" role="banner">
-          <div className="flex items-center justify-between mb-2">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
+        <header className="mb-4 sm:mb-6 md:mb-8" role="banner">
+          <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
             <div className="flex items-center gap-2">
-              <Command className="h-8 w-8 text-foreground" strokeWidth={2} />
-              <h1 className="text-4xl font-semibold text-foreground tracking-tight">Ktrl</h1>
+              <Command className="h-6 w-6 sm:h-8 sm:w-8 text-foreground" strokeWidth={2} />
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight">Ktrl</h1>
             </div>
             <div className="flex items-center gap-2">
               <ThemeToggle />
@@ -140,10 +140,10 @@ function App() {
               </DropdownMenu>
             </div>
           </div>
-          <p className="text-muted-foreground">Your personal task management system</p>
+          <p className="text-muted-foreground text-sm sm:text-base hidden sm:block">Your personal task management system</p>
         </header>
 
-        <main role="main" className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <main role="main" className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           <div className="lg:col-span-2 space-y-6">
             <TaskForm
               onSubmit={addTask}
@@ -180,7 +180,7 @@ function App() {
             )}
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6">
             <TaskStatsCard stats={stats} />
             
             <CategoryManager

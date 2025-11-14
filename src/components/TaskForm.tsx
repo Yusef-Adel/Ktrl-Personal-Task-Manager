@@ -54,9 +54,9 @@ export const TaskForm = ({ onSubmit, categories, loading }: TaskFormProps) => {
   };
 
   return (
-    <div className="bg-card border border-border rounded-lg p-4 shadow-sm animate-in fade-in-50 duration-300">
-      <div className="flex flex-col gap-3">
-        <div className="flex gap-2">
+    <div className="bg-card border border-border rounded-lg p-3 sm:p-4 shadow-sm animate-in fade-in-50 duration-300">
+      <div className="flex flex-col gap-2 sm:gap-3">
+        <div className="flex gap-2 flex-col sm:flex-row">
           <Input
             type="text"
             value={todo}
@@ -73,10 +73,10 @@ export const TaskForm = ({ onSubmit, categories, loading }: TaskFormProps) => {
             size="default"
             variant="default"
             aria-label="Add new task"
-            className="transition-all duration-200 hover:scale-105 active:scale-95"
+            className="transition-all duration-200 hover:scale-105 active:scale-95 w-full sm:w-auto"
           >
-            <Plus className="h-5 w-5" />
-            <span className="hidden sm:inline">Add Task</span>
+            <Plus className="h-4 w-4 sm:h-5 sm:w-5" />
+            <span>Add Task</span>
           </Button>
         </div>
 

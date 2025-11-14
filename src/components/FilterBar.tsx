@@ -44,7 +44,7 @@ export const FilterBar = ({
   ];
 
   return (
-    <div className="bg-card border border-border rounded-lg p-4 shadow-sm animate-in fade-in-50 duration-300">
+    <div className="bg-card border border-border rounded-lg p-3 sm:p-4 shadow-sm animate-in fade-in-50 duration-300">
       <div className="flex flex-col gap-4">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground transition-colors duration-200" />
@@ -93,17 +93,17 @@ export const FilterBar = ({
             </div>
           </div>
 
-          <div className="flex items-center text-foreground gap-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center text-foreground gap-2 w-full sm:w-auto">
             {onExportJSON && (
               <Button
                 onClick={onExportJSON}
                 variant="outline"
                 size="sm"
                 aria-label="Export tasks as JSON"
-                className="transition-all duration-200 hover:scale-105 active:scale-95"
+                className="transition-all duration-200 hover:scale-105 active:scale-95 w-full sm:w-auto justify-center"
               >
                 <FileJson className="h-4 w-4 mr-2" />
-                Export as JSON
+                <span className="hidden sm:inline">Export as </span>Export as JSON
               </Button>
             )}
             {onExportCSV && (
@@ -112,10 +112,10 @@ export const FilterBar = ({
                 variant="outline"
                 size="sm"
                 aria-label="Export tasks as CSV"
-                className="transition-all duration-200 hover:scale-105 active:scale-95"
+                className="transition-all duration-200 hover:scale-105 active:scale-95 w-full sm:w-auto justify-center"
               >
                 <FileSpreadsheet className="h-4 w-4 mr-2" />
-                Export as CSV
+                <span className="hidden sm:inline">Export as </span>Export as CSV
               </Button>
             )}
           </div>

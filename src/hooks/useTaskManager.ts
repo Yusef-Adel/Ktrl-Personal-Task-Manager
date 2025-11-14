@@ -76,7 +76,7 @@ export const useTaskManager = () => {
       }
 
       setTasks(prev => {
-        const updated = [...prev, enrichedTask];
+        const updated = [enrichedTask, ...prev];
         setTaskOrder(updated.map(t => t.id));
         return updated;
       });

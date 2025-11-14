@@ -74,7 +74,7 @@ export const CategoryManager = ({
   };
 
   return (
-    <Card className="p-4 animate-in fade-in-50 duration-300">
+    <Card className="p-3 sm:p-4 animate-in fade-in-50 duration-300">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-semibold text-foreground">Categories</h3>
         <Button
@@ -98,12 +98,12 @@ export const CategoryManager = ({
             autoFocus
             aria-label="New category name"
           />
-          <div className="flex gap-2 mb-3">
+          <div className="flex gap-1.5 sm:gap-2 mb-3 flex-wrap">
             {PRESET_COLORS.map((color) => (
               <button
                 key={color}
                 onClick={() => setNewColor(color)}
-                className={`w-8 h-8 rounded-full transition-transform cursor-pointer hover:scale-105 ${
+                className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-transform cursor-pointer hover:scale-105 ${
                   newColor === color ? 'scale-110 ring-2 ring-ring' : ''
                 }`}
                 style={{ backgroundColor: color }}
@@ -121,7 +121,7 @@ export const CategoryManager = ({
         </div>
       )}
 
-      <div className="space-y-2">
+      <div className="space-y-1.5 sm:space-y-2">
         {categories.map((category, index) => (
           <div
             key={category.id}
@@ -137,12 +137,12 @@ export const CategoryManager = ({
                     onChange={(e) => setEditName(e.target.value)}
                     className="mb-2"
                   />
-                  <div className="flex gap-1">
+                  <div className="flex gap-1 flex-wrap">
                     {PRESET_COLORS.map((color) => (
                       <button
                         key={color}
                         onClick={() => setEditColor(color)}
-                        className={`w-6 h-6 rounded-full transition-transform cursor-pointer hover:scale-105 ${
+                        className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full transition-transform cursor-pointer hover:scale-105 ${
                           editColor === color ? 'scale-110 ring-2 ring-ring' : ''
                         }`}
                         style={{ backgroundColor: color }}

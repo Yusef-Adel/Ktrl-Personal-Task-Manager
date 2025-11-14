@@ -147,21 +147,21 @@ export const TaskItem = memo(({
       ref={setNodeRef}
       style={style}
       className={cn(
-        'bg-card border border-border rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.01]',
+        'bg-card border border-border rounded-lg p-2 sm:p-3 md:p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.01]',
         task.completed && 'opacity-60'
       )}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3">
         <Button
           {...attributes}
           {...listeners}
           disabled={disabled}
           variant="ghost"
           size="icon"
-          className="cursor-grab active:cursor-grabbing h-8 w-8"
+          className="cursor-grab active:cursor-grabbing h-6 w-6 sm:h-8 sm:w-8"
           aria-label="Drag to reorder task"
         >
-          <GripVertical className="h-4 w-4 text-foreground" />
+          <GripVertical className="h-3 w-3 sm:h-4 sm:w-4 text-foreground" />
         </Button>
 
         <Button
@@ -176,29 +176,29 @@ export const TaskItem = memo(({
           variant="ghost"
           size="icon"
           className={cn(
-            'shrink-0 h-5 w-5 rounded border-2 p-0 transition-all duration-200 hover:scale-110',
+            'shrink-0 h-4 w-4 sm:h-5 sm:w-5 rounded border-2 p-0 transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-accent-foreground',
             task.completed
-              ? 'bg-primary border-primary'
+              ? 'bg-primary border-primary text-primary-foreground'
               : 'border-border hover:border-primary'
           )}
           aria-label={task.completed ? 'Mark task as incomplete' : 'Mark task as complete'}
           role="checkbox"
           aria-checked={task.completed}
         >
-          {task.completed && <Check className="h-4 w-4 text-primary-foreground animate-in zoom-in-50 duration-200" />}
+          {task.completed && <Check className="h-4 w-4 animate-in zoom-in-50 duration-200" />}
         </Button>
 
-        <div className="flex-1 flex items-center min-w-0">
+        <div className="flex-1 flex flex-col sm:flex-row sm:items-center min-w-0 gap-1 sm:gap-0">
           <p
             className={cn(
-              'text-foreground wrap-break-word leading-relaxed',
+              'text-foreground wrap-break-word leading-relaxed text-sm sm:text-base',
               task.completed && 'line-through text-muted-foreground'
             )}
           >
             {task.todo}
           </p>
 
-          <div className="flex flex-wrap items-center gap-2 pl-2 ">
+          <div className="flex flex-wrap items-center gap-1 sm:gap-2 sm:pl-2">
             {category && (
               <span
                 className="px-2 py-0.5 rounded-full text-xs font-medium"
@@ -221,16 +221,16 @@ export const TaskItem = memo(({
           </div>
         </div>
 
-        <div className="flex gap-1 text-foreground shrink-0">
+        <div className="flex gap-0.5 sm:gap-1 text-foreground shrink-0">
           <Button
             onClick={() => setIsEditing(true)}
             disabled={disabled}
             variant="ghost"
             size="icon"
-            className="h-8 w-8 transition-all duration-200 hover:scale-110"
+            className="h-7 w-7 sm:h-8 sm:w-8 transition-all duration-200 hover:scale-110"
             aria-label="Edit task"
           >
-            <Edit2 className="h-4 w-4" />
+            <Edit2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </Button>
           <Button
             onClick={async () => {
@@ -243,10 +243,10 @@ export const TaskItem = memo(({
             disabled={disabled}
             variant="ghost"
             size="icon"
-            className="h-8 w-8 hover:text-destructive transition-all duration-200 hover:scale-110"
+            className="h-7 w-7 sm:h-8 sm:w-8 hover:text-destructive transition-all duration-200 hover:scale-110"
             aria-label="Delete task"
           >
-            <Trash2 className="h-4 w-4" />
+            <Trash2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </Button>
         </div>
       </div>
