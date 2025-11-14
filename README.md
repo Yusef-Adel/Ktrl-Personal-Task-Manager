@@ -620,31 +620,9 @@ Start using Ktrl immediately - no sign-up, no email, no tracking.
 1. **Mock API**: DummyJSON doesn't persist data - refresh loses fetched tasks
 2. **Browser Storage**: Data is tied to your browser's localStorage
 3. **Single User**: No multi-user support or cloud sync
-4. **No Mobile App**: Web-only application (PWA coming soon)
+4. **No Mobile App**: Web-only application 
 5. **No Attachments**: Tasks are text-only (no file attachments)
 6. **Limited Sorting**: No custom sort orders or saved views
-
----
-
-## 🚀 Future Enhancements
-
-### **Planned Features**
-
-- [ ] **Backend Integration**: Real database with persistent storage
-- [ ] **User Authentication**: Sign up, login, cloud sync
-- [ ] **Collaboration**: Share tasks, team workspaces
-- [ ] **Recurring Tasks**: Daily, weekly, monthly repeats
-- [ ] **Priority Levels**: High, medium, low priority tasks
-- [ ] **Subtasks**: Break down complex tasks
-- [ ] **Tags**: Multiple tags per task
-- [ ] **Calendar View**: Month/week/day calendar interface
-- [ ] **Task Notes**: Rich text notes and attachments
-- [ ] **Mobile App**: Native iOS/Android apps
-- [ ] **Dark/Light/Auto**: System theme detection
-- [ ] **Reminders**: Browser notifications for due tasks
-- [ ] **Analytics**: Productivity insights and trends
-- [ ] **Import**: Import tasks from other apps
-- [ ] **API**: Public API for integrations
 
 ---
 
