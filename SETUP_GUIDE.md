@@ -19,7 +19,7 @@ This guide will walk you through setting up **Ktrl** on your local machine, step
 Before starting, make sure you have these installed:
 
 #### 1. **Node.js** (Required)
-- **Version**: 18.0 or higher
+- **Version**: 20.0 or higher
 - **Download**: https://nodejs.org/
 - **Why**: Node.js is needed to run the development server and build tools
 
