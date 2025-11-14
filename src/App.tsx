@@ -103,12 +103,12 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen  bg-background">
       <Toaster richColors position="top-right" />
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
-        <header className="mb-4 sm:mb-6 md:mb-8" role="banner">
-          <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
-            <div className="flex items-center gap-2">
+      <div className="max-w-7xl   mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
+        <header className="mb-4  border-b border-border sm:mb-6 md:mb-8" role="banner">
+          <div className="flex items-center   justify-between mb-2 flex-wrap gap-2">
+            <div className="flex  items-center gap-2">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-mono text-foreground tracking-tight">Ktrl</h1>
               <Command className="h-6 w-6 sm:h-8 sm:w-8 text-foreground" strokeWidth={2} />
             </div>
@@ -140,7 +140,7 @@ function App() {
               </DropdownMenu>
             </div>
           </div>
-          <p className="text-muted-foreground text-sm sm:text-base hidden sm:block">Your personal task management system</p>
+          <p className="text-muted-foreground text-sm sm:text-base pb-2 hidden sm:block">Your personal task management system</p>
         </header>
 
         <main role="main" className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
