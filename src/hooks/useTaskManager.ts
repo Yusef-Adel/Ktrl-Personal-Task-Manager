@@ -10,6 +10,11 @@ import {
   setTaskMeta,
   removeTaskMeta,
   getAllTaskMeta,
+  getTasks,
+  setTasks as saveTasksToStorage,
+  addTaskToStorage,
+  updateTaskInStorage,
+  removeTaskFromStorage,
 } from '../utils/storage';
 
 export const useTaskManager = () => {
@@ -30,6 +35,17 @@ export const useTaskManager = () => {
     setLoading(true);
     setError(null);
     try {
+      // First, load from localStorage
+      const localTasks = getTasks();
+      
+      if (localTasks.length > 0) {
+        // Use local tasks if available
+        setTasks(localTasks);
+        setLoading(false);
+        return;
+      }
+
+      // Otherwise, fetch from API
       const fetchedTasks = await api.fetchTasks();
       const taskMeta = getAllTaskMeta();
       const savedOrder = getTaskOrder();
@@ -46,10 +62,13 @@ export const useTaskManager = () => {
         const newTasks = enrichedTasks.filter(
           task => !savedOrder.includes(task.id)
         );
-        setTasks([...orderedTasks, ...newTasks]);
+        const finalTasks = [...orderedTasks, ...newTasks];
+        setTasks(finalTasks);
+        saveTasksToStorage(finalTasks);
       } else {
         setTasks(enrichedTasks);
         setTaskOrder(enrichedTasks.map(task => task.id));
+        saveTasksToStorage(enrichedTasks);
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to load tasks';
@@ -75,9 +94,13 @@ export const useTaskManager = () => {
         setTaskMeta(newTask.id, { categoryId, dueDate });
       }
 
+      // Add to localStorage
+      addTaskToStorage(enrichedTask);
+
       setTasks(prev => {
         const updated = [enrichedTask, ...prev];
         setTaskOrder(updated.map(t => t.id));
+        saveTasksToStorage(updated);
         return updated;
       });
 
@@ -95,7 +118,15 @@ export const useTaskManager = () => {
   const updateTask = async (id: number, updates: Partial<Task>) => {
     setError(null);
     try {
-      const updatedTask = await api.updateTask(id, updates);
+      // Try to update via API, but don't fail if it doesn't work
+      let updatedTask;
+      try {
+        updatedTask = await api.updateTask(id, updates);
+      } catch (apiError) {
+        // If API fails (e.g., 404 for newly created tasks), just use the updates
+        console.warn('API update failed, updating locally only:', apiError);
+        updatedTask = updates;
+      }
 
       if (updates.categoryId !== undefined || updates.dueDate !== undefined) {
         setTaskMeta(id, {
@@ -104,11 +135,16 @@ export const useTaskManager = () => {
         });
       }
 
-      setTasks(prev =>
-        prev.map(task =>
+      // Update in localStorage
+      updateTaskInStorage(id, { ...updatedTask, ...updates });
+
+      setTasks(prev => {
+        const updated = prev.map(task =>
           task.id === id ? { ...task, ...updatedTask, ...updates } : task
-        )
-      );
+        );
+        saveTasksToStorage(updated);
+        return updated;
+      });
 
       if (updates.completed !== undefined) {
         toast.success(updates.completed ? 'Task completed! 🎉' : 'Task marked as active');
@@ -128,12 +164,23 @@ export const useTaskManager = () => {
   const deleteTask = async (id: number) => {
     setError(null);
     try {
-      await api.deleteTask(id);
+      // Try to delete via API, but don't fail if it doesn't work
+      try {
+        await api.deleteTask(id);
+      } catch (apiError) {
+        // If API fails, just delete locally
+        console.warn('API delete failed, deleting locally only:', apiError);
+      }
+      
       removeTaskMeta(id);
+
+      // Remove from localStorage
+      removeTaskFromStorage(id);
 
       setTasks(prev => {
         const updated = prev.filter(task => task.id !== id);
         setTaskOrder(updated.map(t => t.id));
+        saveTasksToStorage(updated);
         return updated;
       });
 
@@ -164,6 +211,7 @@ export const useTaskManager = () => {
   const reorderTasks = useCallback((newOrder: Task[]) => {
     setTasks(newOrder);
     setTaskOrder(newOrder.map(task => task.id));
+    saveTasksToStorage(newOrder);
   }, []);
 
   const addCategory = useCallback((category: Category) => {

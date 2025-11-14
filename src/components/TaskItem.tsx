@@ -2,7 +2,7 @@ import { useState, memo } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Check, Trash2, Calendar, GripVertical, Edit2, X } from 'lucide-react';
-import { format, isPast, isToday } from 'date-fns';
+import { format, differenceInDays } from 'date-fns';
 import type { Task, Category } from '../types';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -13,6 +13,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from './ui/select';
+import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+import { Calendar as CalendarComponent } from './ui/calendar';
 import { cn } from '@/lib/utils';
 
 interface TaskItemProps {
@@ -88,9 +90,15 @@ export const TaskItem = memo(({
   const getDueDateColor = () => {
     if (!task.dueDate) return '';
     const date = new Date(task.dueDate);
-    if (isPast(date) && !isToday(date)) return 'text-destructive';
-    if (isToday(date)) return 'text-chart-3';
-    return 'text-muted-foreground';
+    const today = new Date();
+    const daysUntilDue = differenceInDays(date, today);
+    
+    // Overdue or due today (red)
+    if (daysUntilDue <= 0) return 'text-destructive';
+    // 1-2 days left (urgent - yellow)
+    if (daysUntilDue <= 2) return 'text-yellow-500';
+    // More than 2 days (upcoming - green)
+    return 'text-green-500';
   };
 
   if (isEditing) {
@@ -107,6 +115,7 @@ export const TaskItem = memo(({
             onChange={(e) => setEditText(e.target.value)}
             autoFocus
             aria-label="Edit task description"
+            className='text-foreground'
           />
           <div className="flex gap-2">
             <Select value={editCategoryId} onValueChange={setEditCategoryId}>
@@ -122,16 +131,33 @@ export const TaskItem = memo(({
                 ))}
               </SelectContent>
             </Select>
-            <Input
-              type="date"
-              value={editDueDate}
-              onChange={(e) => setEditDueDate(e.target.value)}
-              className="flex-1"
-            />
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  className={cn(
+                    'flex-1 justify-start text-left font-normal text-foreground',
+                    !editDueDate && 'text-muted-foreground'
+                  )}
+                  aria-label="Pick a due date"
+                >
+                  <Calendar className="mr-2 h-4 w-4" />
+                  {editDueDate ? format(new Date(editDueDate), 'MMM d, yyyy') : 'Pick a date'}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0 text-popover-foreground" align="start">
+                <CalendarComponent
+                  mode="single"
+                  selected={editDueDate ? new Date(editDueDate) : undefined}
+                  onSelect={(date) => setEditDueDate(date ? format(date, 'yyyy-MM-dd') : '')}
+                  initialFocus
+                />
+              </PopoverContent>
+            </Popover>
           </div>
           <div className="flex gap-2 justify-end">
             <Button onClick={handleCancel} variant="outline" size="sm" aria-label="Cancel editing">
-              <X className="h-4 w-4" />
+              <X className="h-4 w-4 text-foreground" />
             </Button>
             <Button onClick={handleSave} size="sm" aria-label="Save changes">
               <Check className="h-4 w-4" />
@@ -212,7 +238,7 @@ export const TaskItem = memo(({
             )}
 
             {task.dueDate && (
-              <span className={cn('flex items-center gap-1 text-xs', getDueDateColor())}>
+              <span className={cn('flex items-center gap-1 text-xs font-medium', getDueDateColor())}>
                 <Calendar className="h-3 w-3" />
                 Due Date : 
                 {format(new Date(task.dueDate), ' MMM d, yyyy')}

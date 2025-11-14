@@ -42,7 +42,9 @@ export const TaskList = memo(({
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: {
-        distance: 8,
+        distance: 10, // Increased distance to prevent accidental drags
+        delay: 100, // Add delay for mobile
+        tolerance: 5,
       },
     }),
     useSensor(KeyboardSensor, {

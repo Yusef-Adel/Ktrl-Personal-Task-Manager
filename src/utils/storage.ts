@@ -5,6 +5,7 @@ const STORAGE_KEYS = {
   CATEGORIES: 'control_categories',
   TASK_ORDER: 'control_task_order',
   TASK_META: 'control_task_meta',
+  TASKS: 'control_tasks',
 } as const;
 
 export const getTheme = (): 'light' | 'dark' => {
@@ -114,4 +115,42 @@ export const getAllTaskMeta = (): Record<number, TaskMeta> => {
     }
   }
   return {};
+};
+
+// Task persistence functions
+export const getTasks = (): any[] => {
+  const tasksStr = localStorage.getItem(STORAGE_KEYS.TASKS);
+  if (tasksStr) {
+    try {
+      return JSON.parse(tasksStr);
+    } catch {
+      return [];
+    }
+  }
+  return [];
+};
+
+export const setTasks = (tasks: any[]): void => {
+  localStorage.setItem(STORAGE_KEYS.TASKS, JSON.stringify(tasks));
+};
+
+export const addTaskToStorage = (task: any): void => {
+  const tasks = getTasks();
+  tasks.unshift(task);
+  setTasks(tasks);
+};
+
+export const updateTaskInStorage = (taskId: number, updates: any): void => {
+  const tasks = getTasks();
+  const index = tasks.findIndex(t => t.id === taskId);
+  if (index !== -1) {
+    tasks[index] = { ...tasks[index], ...updates };
+    setTasks(tasks);
+  }
+};
+
+export const removeTaskFromStorage = (taskId: number): void => {
+  const tasks = getTasks();
+  const filtered = tasks.filter(t => t.id !== taskId);
+  setTasks(filtered);
 };

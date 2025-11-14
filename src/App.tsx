@@ -13,6 +13,7 @@ import { TaskStatsCard } from './components/TaskStatsCard';
 import { KeyboardShortcutsHelp } from './components/KeyboardShortcutsHelp';
 import { TaskListSkeleton } from './components/TaskSkeleton';
 import { ErrorMessage } from './components/ErrorMessage';
+import { ScrollIndicator } from './components/ScrollIndicator';
 import { Toaster } from './components/ui/sonner';
 import { Button } from './components/ui/button';
 import {
@@ -25,6 +26,7 @@ import {
 } from './components/ui/dropdown-menu';
 import { exportToJSON, exportToCSV } from './utils/helpers';
 import './App.css';
+import { AuroraText } from './components/ui/aurora-text';
 
 function App() {
   const {
@@ -104,8 +106,8 @@ function App() {
         <header className="mb-4 sm:mb-6 md:mb-8" role="banner">
           <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
             <div className="flex items-center gap-2">
+              <AuroraText className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight">Ktrl</AuroraText>
               <Command className="h-6 w-6 sm:h-8 sm:w-8 text-foreground" strokeWidth={2} />
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight">Ktrl</h1>
             </div>
             <div className="flex items-center gap-2">
               <ThemeToggle />
@@ -193,6 +195,8 @@ function App() {
             {showShortcuts && <KeyboardShortcutsHelp />}
           </div>
         </main>
+
+        <ScrollIndicator />
       </div>
     </div>
   );
