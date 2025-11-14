@@ -88,7 +88,7 @@ export const CategoryManager = ({
       </div>
 
       {isAdding && (
-        <div className="mb-4 p-3 bg-secondary rounded-md animate-in fade-in-50 slide-in-from-top-2 duration-200">
+        <div className="mb-4 p-3 bg-card rounded-md animate-in fade-in-50 slide-in-from-top-2 duration-200">
           <Input
             type="text"
             value={newName}
@@ -141,7 +141,7 @@ export const CategoryManager = ({
         {categories.map((category, index) => (
           <div
             key={category.id}
-            className="flex items-center gap-2 p-2 px-4 rounded-md bg-secondary animate-in fade-in-50 slide-in-from-left-2"
+            className="flex items-center gap-2 border border-border p-2 px-4 rounded-md bg-card animate-in fade-in-50 slide-in-from-left-2"
             style={{ animationDelay: `${index * 30}ms`, animationFillMode: 'backwards' }}
           >
             {editingId === category.id ? (

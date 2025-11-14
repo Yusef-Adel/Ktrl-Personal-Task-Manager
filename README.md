@@ -18,15 +18,27 @@
 ## 📸 Screenshots
 
 ### 🌙 Dark Mode
-![Dark Mode Interface](https://via.placeholder.com/1200x600/000000/FFFFFF?text=Dark+Mode+Screenshot)
+![Dark Mode Interface](https://ibb.co/ymBFDQK6)
 *Clean, modern dark interface with smooth animations and intuitive controls*
 
 ### ☀️ Light Mode
-![Light Mode Interface](https://via.placeholder.com/1200x600/FCFCFC/000000?text=Light+Mode+Screenshot)
+![Light Mode Interface](https://ibb.co/bR1TSKnr)
 *Bright, minimalist light theme with excellent readability*
 
 ### ⌨️ Keyboard Shortcuts
-![Keyboard Shortcuts](https://via.placeholder.com/400x300/F5F5F5/000000?text=Keyboard+Shortcuts)
+![Keyboard Shortcuts](https://ibb.co/tPFj6zBC)
+*Power user features with comprehensive keyboard navigation*
+
+### ⌨️ Category Submission
+![Category Submission](https://ibb.co/LztF6ZrB)
+*Power user features with comprehensive keyboard navigation*
+
+### ⌨️ Category Edit
+![Category Edit](https://ibb.co/CK85kDd1)
+*Power user features with comprehensive keyboard navigation*
+
+### ⌨️ Task Edit
+![Task Edit](https://ibb.co/gFcgX9nY)
 *Power user features with comprehensive keyboard navigation*
 
 ---
