@@ -109,7 +109,7 @@ function App() {
         <header className="mb-4 sm:mb-6 md:mb-8" role="banner">
           <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
             <div className="flex items-center gap-2">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight">Ktrl</h1>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-mono text-foreground tracking-tight">Ktrl</h1>
               <Command className="h-6 w-6 sm:h-8 sm:w-8 text-foreground" strokeWidth={2} />
             </div>
             <div className="flex items-center gap-2">
@@ -153,7 +153,7 @@ function App() {
             />
 
             {/* Mobile separator */}
-            <div className="lg:hidden border-t-2 border-border my-6"></div>
+            <div className="lg:hidden border-t border-border my-6"></div>
 
             <FilterBar
               filter={filter}
@@ -167,7 +167,7 @@ function App() {
               onExportCSV={handleExportCSV}
               searchInputRef={searchInputRef}
             />
-
+            <div className="lg:hidden border-t border-border my-6"></div>
             {error && <ErrorMessage message={error} onRetry={refreshTasks} />}
 
             {loading && !error ? (
@@ -186,13 +186,13 @@ function App() {
           </div>
 
           {/* Mobile separator before sidebar */}
-          <div className="lg:hidden border-t-2 border-border my-6"></div>
+          <div className="lg:hidden border-t border-border"></div>
 
           <div className="space-y-4 sm:space-y-5 md:space-y-6">
             <TaskStatsCard stats={stats} />
             
             {/* Mobile separator */}
-            <div className="lg:hidden border-t-2 border-border my-4"></div>
+            <div className="lg:hidden border-t border-border my-4"></div>
             
             <div ref={categoryManagerRef}>
               <CategoryManager
