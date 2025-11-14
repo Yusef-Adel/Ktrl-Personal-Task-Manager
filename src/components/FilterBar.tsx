@@ -2,6 +2,7 @@ import { Search, Filter, ArrowUpDown, FileJson, FileSpreadsheet } from 'lucide-r
 import type { FilterType, SortType, Category } from '../types';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import type { RefObject } from 'react';
 import {
   Select,
   SelectContent,
@@ -30,6 +31,7 @@ interface FilterBarProps {
   onCategorySelect?: (categoryId: string) => void;
   onExportJSON?: () => void;
   onExportCSV?: () => void;
+  searchInputRef?: RefObject<HTMLInputElement | null>;
 }
 
 export const FilterBar = ({
@@ -44,6 +46,7 @@ export const FilterBar = ({
   onCategorySelect,
   onExportJSON,
   onExportCSV,
+  searchInputRef,
 }: FilterBarProps) => {
   const filters: { value: FilterType; label: string }[] = [
     { value: 'all', label: 'All' },
@@ -57,6 +60,7 @@ export const FilterBar = ({
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground transition-colors duration-200" />
           <Input
+            ref={searchInputRef}
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}

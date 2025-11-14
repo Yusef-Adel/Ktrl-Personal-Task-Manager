@@ -7,7 +7,6 @@ export const KeyboardShortcutsHelp = () => {
 
   const shortcuts = [
     { keys: `${modKey} + K`, description: 'Focus search' },
-    { keys: `${modKey} + N`, description: 'New task' },
     { keys: `${modKey} + D`, description: 'Toggle theme' },
     { keys: `${modKey} + E`, description: 'Export tasks' },
     { keys: `${modKey} + 1/2/3`, description: 'Filter: All/Active/Completed' },

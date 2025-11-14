@@ -133,80 +133,359 @@ Power user features for lightning-fast task management:
 ## 📦 Installation & Setup
 
 ### **Prerequisites**
-- Node.js 18+ or Bun 1.0+
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Git for cloning the repository
 
-### **Quick Start**
+Before you begin, ensure you have the following installed on your system:
+
+- **Node.js** (version 18.0 or higher) - [Download here](https://nodejs.org/)
+  - To check your version: `node --version`
+  - Alternatively, you can use **Bun** (version 1.0+) - [Download here](https://bun.sh/)
+- **Git** - [Download here](https://git-scm.com/)
+- **A modern web browser**:
+  - ✅ Chrome/Chromium 90+ (Recommended)
+  - ✅ Firefox 88+
+  - ✅ Safari 14+
+  - ✅ Edge 90+
+
+### **Step-by-Step Installation Guide**
+
+#### **1. Clone the Repository**
+
+Open your terminal (Command Prompt, PowerShell, or Terminal) and run:
 
 ```bash
 # Clone the repository
 git clone https://github.com/Yusef-Adel/Ktrl-Personal-Task-Manager.git
+
+# Navigate into the project directory
 cd Ktrl-Personal-Task-Manager
-
-# Install dependencies with Bun (recommended)
-bun install
-
-# Or with npm
-npm install
-
-# Or with yarn
-yarn install
-
-# Start development server
-bun run dev
-
-# Or with npm/yarn
-npm run dev
-# yarn dev
 ```
 
-The application will start at **`http://localhost:5173`**
+#### **2. Install Dependencies**
 
-### **Build for Production**
+Choose one of the following package managers:
+
+**Option A: Using Bun (Recommended - Fastest)**
+```bash
+bun install
+```
+
+**Option B: Using npm (Most Common)**
+```bash
+npm install
+```
+
+**Option C: Using yarn**
+```bash
+yarn install
+```
+
+**Option D: Using pnpm**
+```bash
+pnpm install
+```
+
+> ⏱️ **Installation Time**: This typically takes 1-3 minutes depending on your internet speed and package manager.
+
+#### **3. Start the Development Server**
+
+After installation is complete, start the local development server:
+
+**Using Bun:**
+```bash
+bun run dev
+```
+
+**Using npm:**
+```bash
+npm run dev
+```
+
+**Using yarn:**
+```bash
+yarn dev
+```
+
+**Using pnpm:**
+```bash
+pnpm dev
+```
+
+#### **4. Open the Application**
+
+Once the server starts, you'll see output like this:
+
+```
+  VITE v7.2.2  ready in 234 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
+
+**Open your browser and navigate to:** `http://localhost:5173`
+
+🎉 **That's it!** The application should now be running locally on your machine.
+
+---
+
+### **Building for Production**
+
+When you're ready to deploy the application:
 
 ```bash
 # Build optimized production bundle
 bun run build
+# or: npm run build
 
-# Preview production build locally
-bun run preview
-
-# Lint code
-bun run lint
+# The build output will be in the 'dist' folder
 ```
 
-### **Project Structure**
+To preview the production build locally:
+
+```bash
+bun run preview
+# or: npm run preview
+
+# Opens at http://localhost:4173
+```
+
+---
+
+### **🌐 Cross-Browser Compatibility**
+
+Ktrl is built with modern web standards and tested across all major browsers:
+
+#### **✅ Fully Supported Browsers**
+
+| Browser | Minimum Version | Status | Notes |
+|---------|----------------|--------|-------|
+| **Chrome** | 90+ | ✅ Excellent | Recommended - Best performance |
+| **Firefox** | 88+ | ✅ Excellent | Full feature support |
+| **Safari** | 14+ | ✅ Excellent | macOS & iOS fully supported |
+| **Edge** | 90+ | ✅ Excellent | Chromium-based, same as Chrome |
+| **Opera** | 76+ | ✅ Excellent | Chromium-based |
+| **Brave** | 1.25+ | ✅ Excellent | Privacy-focused, works great |
+
+#### **📱 Mobile Browser Support**
+
+| Mobile Browser | Status | Notes |
+|---------------|--------|-------|
+| Safari iOS 14+ | ✅ Excellent | Optimized for iPhone/iPad |
+| Chrome Android | ✅ Excellent | Touch gestures work perfectly |
+| Firefox Android | ✅ Excellent | Full feature parity |
+| Samsung Internet | ✅ Good | Chromium-based |
+
+#### **🛠️ Browser Features Used**
+
+The application uses these modern web features:
+- ✅ **CSS Variables (Custom Properties)** - Supported in all modern browsers
+- ✅ **CSS Grid & Flexbox** - Full support across browsers
+- ✅ **LocalStorage API** - Universal support
+- ✅ **Fetch API** - Universal support
+- ✅ **ES6+ JavaScript** - Transpiled for compatibility
+- ✅ **Touch Events** - Full mobile support
+- ✅ **Pointer Events** - Unified input handling
+- ✅ **Color Input Type** - Native color picker (HTML5)
+- ✅ **View Transitions API** - Progressive enhancement (Chrome 111+)
+
+#### **⚠️ Known Browser Limitations**
+
+1. **Internet Explorer 11**: ❌ Not supported (deprecated by Microsoft)
+2. **Safari < 14**: Limited CSS variable support
+3. **Firefox < 88**: Some CSS features may not work
+4. **View Transitions**: Only works in Chrome 111+, gracefully degrades in other browsers
+
+#### **🔧 Troubleshooting Browser Issues**
+
+**If you experience issues:**
+
+1. **Clear your browser cache**:
+   - Chrome: `Ctrl/Cmd + Shift + Delete`
+   - Firefox: `Ctrl/Cmd + Shift + Delete`
+   - Safari: `Cmd + Option + E`
+
+2. **Enable JavaScript**: Ensure JavaScript is enabled in your browser settings
+
+3. **Update your browser**: Make sure you're running the latest version
+
+4. **Try incognito/private mode**: Rules out extension conflicts
+
+5. **Check console for errors**: 
+   - Open DevTools: `F12` or `Ctrl/Cmd + Shift + I`
+   - Look for errors in the Console tab
+
+---
+
+### **🚀 Deployment Options**
+
+Deploy your Ktrl instance to any static hosting provider:
+
+#### **Vercel (Recommended)**
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+```
+
+#### **Netlify**
+```bash
+# Install Netlify CLI
+npm i -g netlify-cli
+
+# Deploy
+netlify deploy --prod
+```
+
+#### **GitHub Pages**
+1. Build the project: `npm run build`
+2. Push the `dist` folder to your `gh-pages` branch
+3. Enable GitHub Pages in repository settings
+
+#### **Other Options**
+- **Cloudflare Pages**
+- **Firebase Hosting**
+- **AWS S3 + CloudFront**
+- **Render**
+- **Railway**
+
+All these platforms support static React applications out of the box.
+
+---
+
+### **🔍 Project Structure**
 ```
 Ktrl/
-├── public/                 # Static assets
+├── public/                 # Static assets (favicon, images)
 ├── src/
 │   ├── components/         # React components
-│   │   ├── ui/            # shadcn/ui components
-│   │   ├── TaskForm.tsx
-│   │   ├── TaskItem.tsx
-│   │   ├── TaskList.tsx
-│   │   ├── FilterBar.tsx
-│   │   ├── CategoryManager.tsx
+│   │   ├── ui/            # shadcn/ui components (Button, Input, etc.)
+│   │   ├── TaskForm.tsx   # Task creation form
+│   │   ├── TaskItem.tsx   # Individual task component
+│   │   ├── TaskList.tsx   # Drag & drop task list
+│   │   ├── FilterBar.tsx  # Search and filter controls
+│   │   ├── CategoryManager.tsx  # Category CRUD
+│   │   ├── TaskStatsCard.tsx    # Statistics display
+│   │   ├── ThemeToggle.tsx      # Dark/light mode toggle
 │   │   └── ...
 │   ├── hooks/             # Custom React hooks
-│   │   ├── useTaskManager.ts
-│   │   └── useKeyboardShortcuts.ts
+│   │   ├── useTaskManager.ts         # Task state management
+│   │   └── useKeyboardShortcuts.ts   # Keyboard navigation
 │   ├── services/          # API services
-│   │   └── api.ts
+│   │   └── api.ts         # DummyJSON API integration
 │   ├── utils/             # Utility functions
-│   │   ├── storage.ts
-│   │   └── helpers.ts
-│   ├── types/             # TypeScript types
-│   │   └── index.ts
-│   ├── App.tsx            # Main app component
-│   ├── main.tsx           # Entry point
-│   └── index.css          # Global styles
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── README.md
+│   │   ├── storage.ts     # LocalStorage helpers
+│   │   └── helpers.ts     # General utilities
+│   ├── types/             # TypeScript type definitions
+│   │   └── index.ts       # Task, Category, Filter types
+│   ├── App.tsx            # Main application component
+│   ├── main.tsx           # React entry point
+│   └── index.css          # Global styles & Tailwind config
+├── .gitignore
+├── components.json         # shadcn/ui configuration
+├── eslint.config.js        # ESLint configuration
+├── package.json            # Dependencies & scripts
+├── postcss.config.js       # PostCSS configuration
+├── tsconfig.json           # TypeScript configuration
+├── vite.config.ts          # Vite build configuration
+└── README.md              # This file!
 ```
+
+---
+
+### **⚙️ Available Scripts**
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server at `http://localhost:5173` |
+| `npm run build` | Build optimized production bundle to `dist/` |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint to check code quality |
+
+---
+
+### **🐛 Common Setup Issues**
+
+#### **Issue: "command not found: npm" or "command not found: node"**
+**Solution**: Node.js is not installed or not in your PATH. Download and install from [nodejs.org](https://nodejs.org/)
+
+#### **Issue: Port 5173 is already in use**
+**Solution**: Either close the application using that port, or Vite will automatically try the next available port (5174, 5175, etc.)
+
+#### **Issue: EACCES permission errors (Linux/Mac)**
+**Solution**: Don't use `sudo` with npm. Fix npm permissions:
+```bash
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+export PATH=~/.npm-global/bin:$PATH
+```
+
+#### **Issue: Installation fails with network errors**
+**Solution**: 
+```bash
+# Clear npm cache
+npm cache clean --force
+
+# Try again
+npm install
+```
+
+#### **Issue: Build fails with TypeScript errors**
+**Solution**: Ensure TypeScript is installed correctly:
+```bash
+npm install -D typescript
+npm run build
+```
+
+---
+
+### **💡 First-Time User Guide**
+
+Once the application is running:
+
+1. **Create Your First Task**
+   - Type in the "Add a new task..." input field
+   - Press `Enter` or click "Add Task"
+
+2. **Add a Category**
+   - Scroll down to the "Categories" card
+   - Click the `+` button
+   - Enter a name and choose a color
+   - Click "Add Category"
+
+3. **Organize Your Tasks**
+   - Drag tasks by the grip handle to reorder
+   - Click the checkbox to mark as complete
+   - Click the pencil icon to edit
+   - Click the trash icon to delete
+
+4. **Try Keyboard Shortcuts**
+   - Press `Ctrl/Cmd + K` to focus search
+   - Press `Ctrl/Cmd + N` to add new task
+   - Press `Ctrl/Cmd + D` to toggle theme
+
+5. **Explore Filters**
+   - Use the filter buttons to show All/Active/Completed tasks
+   - Try the search bar to find specific tasks
+   - Sort tasks by different criteria
+
+---
+
+### **📊 System Requirements**
+
+**Minimum:**
+- **CPU**: Any modern processor (2010+)
+- **RAM**: 2 GB
+- **Storage**: 100 MB free space
+- **Internet**: Required for initial setup and API calls
+- **Screen**: 320px width minimum (mobile support)
+
+**Recommended:**
+- **CPU**: Dual-core processor or better
+- **RAM**: 4 GB or more
+- **Internet**: Broadband connection
+- **Screen**: 1024px width or higher for best experience
 
 ---
 

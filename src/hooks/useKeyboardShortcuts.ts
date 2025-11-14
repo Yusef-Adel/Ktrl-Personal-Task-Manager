@@ -15,7 +15,7 @@ export const useKeyboardShortcuts = (shortcuts: Shortcuts) => {
       if (!modifierKey) return;
 
       const key = event.key.toLowerCase();
-      const shortcutKey = `${modifierKey ? 'mod+' : ''}${event.shiftKey ? 'shift+' : ''}${key}`;
+      const shortcutKey = `mod+${key}`;
 
       if (shortcuts[shortcutKey]) {
         event.preventDefault();

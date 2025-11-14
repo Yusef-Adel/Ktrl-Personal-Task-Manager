@@ -227,9 +227,65 @@ body {
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
   min-height: 100vh;
+  
+  /* Cross-browser font smoothing */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Smooth transitions for theme changes */
   transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* Prevent text size adjustment on mobile browsers */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  
+  /* Better tap highlighting on mobile */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Improve focus visibility for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid rgb(var(--color-ring));
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for browsers that support it */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Ensure color inputs work consistently across browsers */
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: 1px solid rgb(var(--color-border));
+  border-radius: var(--radius-sm);
+}
+
+input[type="color"]::-moz-color-swatch {
+  border: 1px solid rgb(var(--color-border));
+  border-radius: var(--radius-sm);
+}
+
+/* Better checkbox styling across browsers */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 @layer base {
@@ -241,7 +297,10 @@ body {
   }
 }
 
-::view-transition-old(root), ::view-transition-new(root) {
+/* View transitions for modern browsers (progressive enhancement) */
+@supports (view-transition-name: root) {
+  ::view-transition-old(root), ::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;
+  }
 }

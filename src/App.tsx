@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { Settings, Command, FileJson, FileSpreadsheet, Keyboard } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { Settings, Command, FileJson, FileSpreadsheet } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTaskManager } from './hooks/useTaskManager';
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
@@ -50,10 +50,17 @@ function App() {
     refreshTasks,
   } = useTaskManager();
 
-  const [showShortcuts, setShowShortcuts] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const stats = calculateTaskStats(allTasks);
+
+  const handleToggleTheme = () => {
+    const root = document.documentElement;
+    const currentTheme = root.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    root.classList.toggle('dark', newTheme === 'dark');
+    localStorage.setItem('control_theme', newTheme);
+  };
 
   const handleExportJSON = () => {
     try {
@@ -77,15 +84,8 @@ function App() {
     'mod+k': () => {
       searchInputRef.current?.focus();
     },
-    'mod+n': () => {
-      document.querySelector<HTMLInputElement>('input[placeholder="Add a new task..."]')?.focus();
-    },
-    'mod+d': () => {
-      document.querySelector<HTMLButtonElement>('button[aria-label*="mode"]')?.click();
-    },
-    'mod+e': () => {
-      document.querySelector<HTMLButtonElement>('button:has(> span:contains("JSON"))')?.click();
-    },
+    'mod+d': handleToggleTheme,
+    'mod+e': handleExportJSON,
     'mod+1': () => setFilter('all'),
     'mod+2': () => setFilter('active'),
     'mod+3': () => setFilter('completed'),
@@ -131,11 +131,6 @@ function App() {
                     <FileSpreadsheet className="mr-2 h-4 w-4" />
                     <span>Export as CSV</span>
                   </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={() => setShowShortcuts(!showShortcuts)}>
-                    <Keyboard className="mr-2 h-4 w-4" />
-                    <span>Keyboard Shortcuts</span>
-                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -161,6 +156,7 @@ function App() {
               categories={categories}
               onExportJSON={handleExportJSON}
               onExportCSV={handleExportCSV}
+              searchInputRef={searchInputRef}
             />
 
             {error && <ErrorMessage message={error} onRetry={refreshTasks} />}
@@ -188,7 +184,9 @@ function App() {
               onUpdate={updateCategory}
               onDelete={deleteCategory}
             />
-            {showShortcuts && <KeyboardShortcutsHelp />}
+            <div className="hidden lg:block">
+              <KeyboardShortcutsHelp />
+            </div>
           </div>
         </main>
       </div>
