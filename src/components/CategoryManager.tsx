@@ -98,18 +98,34 @@ export const CategoryManager = ({
             autoFocus
             aria-label="New category name"
           />
-          <div className="flex gap-1.5 sm:gap-2 mb-3 flex-wrap">
-            {PRESET_COLORS.map((color) => (
-              <button
-                key={color}
-                onClick={() => setNewColor(color)}
-                className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-transform cursor-pointer hover:scale-105 ${
-                  newColor === color ? 'scale-110 ring-2 ring-ring' : ''
-                }`}
-                style={{ backgroundColor: color }}
-                aria-label={`Select color ${color}`}
+          <div className="mb-3">
+            <div className="flex gap-1.5 sm:gap-2 mb-2 flex-wrap">
+              {PRESET_COLORS.map((color) => (
+                <button
+                  key={color}
+                  onClick={() => setNewColor(color)}
+                  className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-transform cursor-pointer hover:scale-105 ${
+                    newColor === color ? 'scale-110 ring-2 ring-ring' : ''
+                  }`}
+                  style={{ backgroundColor: color }}
+                  aria-label={`Select color ${color}`}
+                />
+              ))}
+            </div>
+            <div className="flex items-center gap-2">
+              <label htmlFor="custom-color-new" className="text-sm text-muted-foreground">
+                Custom:
+              </label>
+              <input
+                id="custom-color-new"
+                type="color"
+                value={newColor}
+                onChange={(e) => setNewColor(e.target.value)}
+                className="w-10 h-8 rounded border border-input cursor-pointer bg-transparent"
+                aria-label="Pick custom color"
               />
-            ))}
+              <span className="text-xs text-muted-foreground font-mono">{newColor.toUpperCase()}</span>
+            </div>
           </div>
           <Button
             onClick={handleAdd}
@@ -137,18 +153,34 @@ export const CategoryManager = ({
                     onChange={(e) => setEditName(e.target.value)}
                     className="mb-2"
                   />
-                  <div className="flex gap-1 flex-wrap">
-                    {PRESET_COLORS.map((color) => (
-                      <button
-                        key={color}
-                        onClick={() => setEditColor(color)}
-                        className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full transition-transform cursor-pointer hover:scale-105 ${
-                          editColor === color ? 'scale-110 ring-2 ring-ring' : ''
-                        }`}
-                        style={{ backgroundColor: color }}
-                        aria-label={`Select color ${color}`}
+                  <div>
+                    <div className="flex gap-1 flex-wrap mb-2">
+                      {PRESET_COLORS.map((color) => (
+                        <button
+                          key={color}
+                          onClick={() => setEditColor(color)}
+                          className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full transition-transform cursor-pointer hover:scale-105 ${
+                            editColor === color ? 'scale-110 ring-2 ring-ring' : ''
+                          }`}
+                          style={{ backgroundColor: color }}
+                          aria-label={`Select color ${color}`}
+                        />
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <label htmlFor="custom-color-edit" className="text-xs text-muted-foreground">
+                        Custom:
+                      </label>
+                      <input
+                        id="custom-color-edit"
+                        type="color"
+                        value={editColor}
+                        onChange={(e) => setEditColor(e.target.value)}
+                        className="w-8 h-6 rounded border border-input cursor-pointer bg-transparent"
+                        aria-label="Pick custom color"
                       />
-                    ))}
+                      <span className="text-xs text-muted-foreground font-mono">{editColor.toUpperCase()}</span>
+                    </div>
                   </div>
                 </div>
                 <div className="flex gap-1">

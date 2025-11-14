@@ -115,7 +115,7 @@ function App() {
                     variant="secondary"
                     size="icon"
                     aria-label="Open settings menu"
-                    className="transition-all duration-200 hover:scale-110 hover:rotate-90"
+                    className="transition-all w-10 h-10 duration-200 hover:scale-110 hover:rotate-90"
                   >
                     <Settings className="h-5 w-5 transition-transform duration-300" />
                   </Button>
