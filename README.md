@@ -22,12 +22,12 @@ _Clean, modern dark interface with smooth animations and intuitive controls_
 
 ### ☀️ Light Mode
 
-![Light Mode Interface](<(https://github.com/user-attachments/assets/9609efb7-ccd2-4266-95e7-700d54c817a4)>)
+![Light Mode Interface]((https://github.com/user-attachments/assets/9609efb7-ccd2-4266-95e7-700d54c817a4))
 _Bright, minimalist light theme with excellent readability_
 
 ### ⌨️ Keyboard Shortcuts
 
-![Keyboard Shortcuts](https://ibb.co/tPFj6zBC)
+![Keyboard Shortcuts](https://github.com/user-attachments/assets/8d01969b-95f1-43ff-b487-5ddcc1ba322b)
 _Power user features with comprehensive keyboard navigation_
 
 ### ⌨️ Category Submission
