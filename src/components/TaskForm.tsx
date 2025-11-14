@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { KeyboardEvent } from 'react';
-import { Plus, Calendar as CalendarIcon } from 'lucide-react';
+import { Plus, Calendar as CalendarIcon, FolderPlus } from 'lucide-react';
 import { format } from 'date-fns';
 import type { Category } from '../types';
 import { Button } from './ui/button';
@@ -20,9 +20,10 @@ interface TaskFormProps {
   onSubmit: (todo: string, categoryId?: string, dueDate?: string) => Promise<unknown>;
   categories: Category[];
   loading?: boolean;
+  onAddCategoryClick?: () => void;
 }
 
-export const TaskForm = ({ onSubmit, categories, loading }: TaskFormProps) => {
+export const TaskForm = ({ onSubmit, categories, loading, onAddCategoryClick }: TaskFormProps) => {
   const [todo, setTodo] = useState('');
   const [categoryId, setCategoryId] = useState<string>('none');
   const [date, setDate] = useState<Date>();
@@ -81,32 +82,47 @@ export const TaskForm = ({ onSubmit, categories, loading }: TaskFormProps) => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-2">
-          <Select value={categoryId} onValueChange={setCategoryId} disabled={loading || submitting}>
-            <SelectTrigger className="sm:w-[180px] text-foreground" aria-label="Select task category">
-              <SelectValue placeholder="No Category" className="text-foreground" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="none">No Category</SelectItem>
-              {categories.map((category) => (
-                <SelectItem key={category.id} value={category.id}>
-                  <div className="flex items-center gap-2">
-                    <div
-                      className="w-3 h-3 rounded-full"
-                      style={{ backgroundColor: category.color }}
-                    />
-                    {category.name}
-                  </div>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <div className="flex gap-2 w-full sm:w-auto">
+            <Select value={categoryId} onValueChange={setCategoryId} disabled={loading || submitting}>
+              <SelectTrigger className="flex-1 sm:w-[180px] text-foreground" aria-label="Select task category">
+                <SelectValue placeholder="No Category" className="text-foreground" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="none">No Category</SelectItem>
+                {categories.map((category) => (
+                  <SelectItem key={category.id} value={category.id}>
+                    <div className="flex items-center gap-2">
+                      <div
+                        className="w-3 h-3 rounded-full"
+                        style={{ backgroundColor: category.color }}
+                      />
+                      {category.name}
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            
+            {onAddCategoryClick && (
+              <Button
+                variant="secondary"
+                onClick={onAddCategoryClick}
+                className="lg:hidden whitespace-nowrap"
+                aria-label="Add new category"
+                type="button"
+              >
+                <FolderPlus className="h-4 w-4 mr-2" />
+                Add Categories
+              </Button>
+            )}
+          </div>
 
           <Popover>
             <PopoverTrigger className='text-foreground' asChild>
               <Button
                 variant="outline"
                 className={cn(
-                  'justify-start text-left font-normal',
+                  'justify-start text-left font-normal w-full sm:w-auto',
                   !date && 'text-muted-foreground'
                 )}
                 disabled={loading || submitting}

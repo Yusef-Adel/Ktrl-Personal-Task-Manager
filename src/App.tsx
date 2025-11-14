@@ -51,8 +51,13 @@ function App() {
   } = useTaskManager();
 
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const categoryManagerRef = useRef<HTMLDivElement>(null);
 
   const stats = calculateTaskStats(allTasks);
+
+  const scrollToCategoryManager = () => {
+    categoryManagerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   const handleToggleTheme = () => {
     const root = document.documentElement;
@@ -144,7 +149,11 @@ function App() {
               onSubmit={addTask}
               categories={categories}
               loading={loading}
+              onAddCategoryClick={scrollToCategoryManager}
             />
+
+            {/* Mobile separator */}
+            <div className="lg:hidden border-t-2 border-border my-6"></div>
 
             <FilterBar
               filter={filter}
@@ -176,14 +185,23 @@ function App() {
             )}
           </div>
 
+          {/* Mobile separator before sidebar */}
+          <div className="lg:hidden border-t-2 border-border my-6"></div>
+
           <div className="space-y-4 sm:space-y-5 md:space-y-6">
             <TaskStatsCard stats={stats} />
-            <CategoryManager
-              categories={categories}
-              onAdd={addCategory}
-              onUpdate={updateCategory}
-              onDelete={deleteCategory}
-            />
+            
+            {/* Mobile separator */}
+            <div className="lg:hidden border-t-2 border-border my-4"></div>
+            
+            <div ref={categoryManagerRef}>
+              <CategoryManager
+                categories={categories}
+                onAdd={addCategory}
+                onUpdate={updateCategory}
+                onDelete={deleteCategory}
+              />
+            </div>
             <div className="hidden lg:block">
               <KeyboardShortcutsHelp />
             </div>
